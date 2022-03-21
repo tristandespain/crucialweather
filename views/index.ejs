@@ -1,7 +1,7 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{}}" -->
 <dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <section class="pt-4">
-    <div class="container mt-5">
+    <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col col-md-8">
                 <h1 class="text-primary">Current Weather For {{Current_Weather.data.api.data.location.name}}, {{Current_Weather.data.api.data.location.region}}</h1>
