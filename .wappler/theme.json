@@ -1,0 +1,11 @@
+{
+  "bootstrap5": {
+    "basic": {
+      "border-radius": ".6rem",
+      "spacer": "1.2rem",
+      "enable-shadows": true,
+      "enable-gradients": true
+    },
+    "advanced": {}
+  }
+}
