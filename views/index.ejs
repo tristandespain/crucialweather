@@ -15,8 +15,8 @@
                 <div class="card bg-primary rounded rounded-2 border-secondary">
                     <div class="card-body">
                         <div class="row align-items-center mb-3">
-                            <img class="col-2 img-fluid h-100" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" width="30px">
-                            <h1 class="col-10">{{Current_Weather.data.api.data.current.temp_f+'° - '+Current_Weather.data.api.data.current.condition.text}}</h1>
+                            <img class="col-2 img-fluid h-100 mb-3" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" width="30px">
+                            <h1 class="col-10 mb-3">{{Current_Weather.data.api.data.current.temp_f+'° - '+Current_Weather.data.api.data.current.condition.text}}</h1>
 
                             <div class="col">
                                 <h4><i class="fas fa-temperature-high"></i>&nbsp;Feels Like {{Current_Weather.data.api.data.current.feelslike_f+'°'}}</h4>
@@ -28,7 +28,7 @@
                                 <h4 class="card-text"><i class="fas fa-water"></i>&nbsp;{{Current_Weather.data.api.data.current.humidity+'%'}} humidity</h4>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col">
                                 <h4 class="card-text"><i class="fas fa-eye"></i>&nbsp;{{Current_Weather.data.api.data.current.vis_miles+' miles'}}</h4>
                             </div>
