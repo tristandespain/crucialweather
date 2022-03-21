@@ -1,4 +1,4 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{}}" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{},dmxCharts:{}}" -->
 <dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <section class="pt-4">
     <div class="container">
@@ -15,7 +15,7 @@
                 <div class="card bg-primary rounded rounded-2 border-secondary">
                     <div class="card-body">
                         <div class="row align-items-center">
-                            <img class="col-2" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" width="50px">
+                            <img class="col-2 img-fluid h-100" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" width="30px">
                             <h1 class="col-10">{{Current_Weather.data.api.data.current.temp_f+'° - '+Current_Weather.data.api.data.current.condition.text}}</h1>
                             <h4><i class="fas fa-temperature-high"></i>&nbsp;Feels Like {{Current_Weather.data.api.data.current.feelslike_f+'°'}}</h4>
                         </div>
