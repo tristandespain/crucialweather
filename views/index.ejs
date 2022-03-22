@@ -12,31 +12,43 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card bg-primary rounded rounded-2 border-secondary">
+                <div class="card bg-primary rounded border-secondary rounded-3">
+                    <div class="card-header">
+                        <div class="d-flex text-center align-items-center justify-content-center">
+                            <h1 class="mb-3">{{Current_Weather.data.api.data.current.temp_f.round(0)+'° - '+Current_Weather.data.api.data.current.condition.text}}</h1>
+                            <img class="img-fluid mb-3" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" height="30px">
+                        </div>
+                    </div>
                     <div class="card-body">
                         <div class="row align-items-center mb-3">
-                            <img class="col-2 img-fluid h-100 mb-3" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" width="30px">
-                            <h1 class="col-10 mb-3">{{Current_Weather.data.api.data.current.temp_f+'° - '+Current_Weather.data.api.data.current.condition.text}}</h1>
 
-                            <div class="col">
-                                <h4><i class="fas fa-temperature-high"></i>&nbsp;Feels Like {{Current_Weather.data.api.data.current.feelslike_f+'°'}}</h4>
+
+
+                            <div class="col text-center">
+                                <h5 class="text-nowrap">Feels Like</h5>
+                                <p>{{Current_Weather.data.api.data.current.feelslike_f.round(0)+'°'}}</p>
                             </div>
-                            <div class="col">
-                                <h4 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{Current_Weather.data.api.data.current.wind_dir+' @ '+Current_Weather.data.api.data.current.wind_mph+'mph'}}</h4>
+                            <div class="col text-center">
+                                <h5 class="card-text text-nowrap">Wind</h5>
+                                <p>&nbsp;{{Current_Weather.data.api.data.current.wind_dir+' @ '+Current_Weather.data.api.data.current.wind_mph+'mph'}}</p>
                             </div>
-                            <div class="col">
-                                <h4 class="card-text"><i class="fas fa-water"></i>&nbsp;{{Current_Weather.data.api.data.current.humidity+'%'}} humidity</h4>
+                            <div class="col text-center">
+                                <h5 class="card-text text-nowrap">Humidity</h5>
+                                <p>&nbsp;{{Current_Weather.data.api.data.current.humidity+'%'}}</p>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col">
-                                <h4 class="card-text"><i class="fas fa-eye"></i>&nbsp;{{Current_Weather.data.api.data.current.vis_miles+' miles'}}</h4>
+                            <div class="col text-center">
+                                <h5 class="card-text text-nowrap">Visibility</h5>
+                                <p>&nbsp;{{Current_Weather.data.api.data.current.vis_miles+' miles'}}</p>
                             </div>
-                            <div class="col">
-                                <h4 class="card-text"><i class="fas fa-cloud-showers-heavy"></i>&nbsp;{{Current_Weather.data.api.data.current.precip_in+' in.'}}&nbsp;</h4>
+                            <div class="col text-center">
+                                <h5 class="card-text text-nowrap">Precipitation</h5>
+                                <p>&nbsp;{{Current_Weather.data.api.data.current.precip_in+' in.'}}&nbsp;</p>
                             </div>
-                            <div class="col">
-                                <h4 class="card-text"><i class="fas fa-cloud"></i>&nbsp;{{Current_Weather.data.api.data.current.cloud}}% cloud cover</h4>
+                            <div class="col text-center">
+                                <h5 class="card-text text-nowrap">Clouds</h5>
+                                <p>{{Current_Weather.data.api.data.current.cloud+'%'}}</p>
                             </div>
                         </div>
 
@@ -44,7 +56,7 @@
 
 
 
-                        <div class="d-flex justify-content-center"><a href="#" class="btn btn-primary shadow bg-secondary">See Forecast</a></div>
+                        <div class="d-flex justify-content-center"><a href="#" class="btn btn-primary shadow bg-secondary btn-lg">See Forecast</a></div>
 
                     </div>
                 </div>
