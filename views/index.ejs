@@ -72,6 +72,7 @@
                         <h4 class="card-title">{{time.formatDate('h:mm a')}}</h4>
                         <img dmx-bind:src="{{condition.icon}}">
                         <p class="card-text">{{condition.text}}</p>
+                        <p class="card-text">{{temp_f.round(0)+'°'}}</p>
                     </div>
                 </div>
             </div>
