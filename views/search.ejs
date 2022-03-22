@@ -1,6 +1,5 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{},dmxCharts:{},dmxBootstrap5TableGenerator:{},dmxBootstrap5PagingGenerator:{}}" -->
-<dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
-<dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{},dmxCharts:{},dmxStateManagement:{}}" -->
+<dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="session1.data.location"></dmx-serverconnect>
 <section class="pt-4">
     <div class="container">
         <div class="row justify-content-center text-center">
@@ -64,19 +63,6 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row row-cols-6 text-center" is="dmx-repeat" id="repeat1" dmx-bind:repeat="forecastdata.data.api.data.forecast.forecastday[0].hour">
-            <div class="mb-2 col-4 text-center">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title">{{time.formatDate('h:mm a')}}</h4>
-                        <img dmx-bind:src="{{condition.icon}}">
-                        <p class="card-text">{{condition.text}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
-<meta name="ac:route" content="/">
+<meta name="ac:route" content="/search">
 <!-- New Wappler Page -->

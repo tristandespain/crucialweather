@@ -1,5 +1,9 @@
 {
   "meta": {
+    "options": {
+      "linkedFile": "/views/layouts/main.ejs",
+      "linkedForm": "locationform"
+    },
     "$_GET": [
       {
         "type": "text",

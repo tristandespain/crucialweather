@@ -4,6 +4,11 @@
       "path": "/",
       "page": "index",
       "layout": "main"
+    },
+    {
+      "path": "/search",
+      "page": "search",
+      "layout": "main"
     }
   ]
 }
