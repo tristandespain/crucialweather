@@ -327,6 +327,12 @@ dmx.config({
         }
       ],
       "outputType": "array"
-    }
+    },
+    "query": [
+      {
+        "type": "text",
+        "name": "offset"
+      }
+    ]
   }
 });

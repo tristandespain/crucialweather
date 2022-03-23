@@ -1,4 +1,4 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{},dmxCharts:{},dmxBootstrap5TableGenerator:{},dmxBootstrap5PagingGenerator:{}}" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{},dmxCharts:{},dmxBootstrap5TableGenerator:{},dmxBootstrap5PagingGenerator:{},dmxBootstrap5Navigation:{},dmxStateManagement:{},dmxSwiper:{}}" -->
 <dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <section class="pt-4">
@@ -74,6 +74,47 @@
                         <p class="card-text">{{condition.text}}</p>
                         <p class="card-text">{{temp_f.round(0)+'°'}}</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-striped> <thead> <tr> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody is= text-center"="table table-striped> <thead> <tr> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody is="="table table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="forecastdata.data.api.data.forecast.forecastday[0].hour" id="tableRepeat2">
+                            <tr>
+
+                                <td dmx-text="time.formatDate('h:mm a')">
+
+                                </td>
+                                <td dmx-text="temp_f + '°'"></td>
+                                <td dmx-text="'Rain '+chance_of_rain + '%'"></td>
+                                <td dmx-text="'Snow ' +chance_of_snow + '%'"></td>
+
+                                <td>
+                                    <a><img dmx-bind:src="condition.icon"></a>{{condition.text}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
