@@ -1,0 +1,44 @@
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="home" appConnect="local" -->
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header style4 text-center">{{'Today\'s Weather For '+currentweatherdata.data.geolocation.data.city+', '+currentweatherdata.data.geolocation.data.principalSubdivision}}</div>
+                <div class="card-body">
+                    <div class="d-flex text-center justify-content-center align-items-center">
+                        <img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[1].icon">
+                        <h4 class="card-title">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h4>
+                    </div>
+
+                    <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
+                    <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
+                    <h6 class="card-text">{{currentweatherdata.data.api1.data.properties.periods[1].detailedForecast}} </h6>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header style4 text-center">{{'Tonight\'s Weather For '+currentweatherdata.data.geolocation.data.city+', '+currentweatherdata.data.geolocation.data.principalSubdivision}}</div>
+                <div class="card-body">
+                    <div class="d-flex text-center justify-content-center align-items-center">
+                        <img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon">
+                        <h4 class="card-title">{{currentweatherdata.data.api1.data.properties.periods[2].shortForecast}}</h4>
+                    </div>
+
+                    <p class="card-text">{{currentweatherdata.data.api1.data.properties.periods[2].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[2].temperatureUnit}}</p>
+                    <p class="card-text">{{currentweatherdata.data.api1.data.properties.periods[2].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[2].windSpeed}}</p>
+                    <p class="card-text">{{currentweatherdata.data.api1.data.properties.periods[2].detailedForecast}} </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<meta name="ac:route" content="/home">
+
+<!-- New Wappler Page -->

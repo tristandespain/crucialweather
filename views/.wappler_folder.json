@@ -6,5 +6,9 @@
   "search.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "home.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }

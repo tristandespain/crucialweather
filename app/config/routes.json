@@ -9,6 +9,11 @@
       "path": "/search",
       "page": "search",
       "layout": "main"
+    },
+    {
+      "path": "/home",
+      "page": "home",
+      "layout": "main"
     }
   ]
 }

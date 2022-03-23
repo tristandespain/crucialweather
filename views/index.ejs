@@ -66,6 +66,13 @@
     </div>
     <div class="container">
         <div class="row">
+            <div class="col text-center">
+                <h1>Hourly</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col">
                 <div class="table-responsive">
                     <table class="table table-striped> <thead> <tr> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody is= text-center"="table table-striped> <thead> <tr> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody is="="table table-striped">
@@ -82,10 +89,10 @@
                         <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="forecastdata.data.api.data.forecast.forecastday[0].hour" id="tableRepeat2">
                             <tr>
 
-                                <td dmx-text="time.formatDate('h:mm a')">
+                                <td dmx-text="time.formatDate('h:mm a')" class="style3 table-primary">
 
                                 </td>
-                                <td dmx-text="temp_f + '°'"></td>
+                                <td dmx-text="temp_f.round(0) + '°'"></td>
                                 <td dmx-text="'Rain '+chance_of_rain + '%'"></td>
                                 <td dmx-text="'Snow ' +chance_of_snow + '%'"></td>
 
