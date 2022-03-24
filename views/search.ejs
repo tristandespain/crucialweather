@@ -1,85 +1,115 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="index" appConnect="local" components="{dmxGeolocation:{},dmxFormatter:{},dmxCharts:{},dmxStateManagement:{},dmxBootstrap5Navigation:{}}" -->
-<dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="session1.data.location"></dmx-serverconnect>
-<dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="session1.data.location"></dmx-serverconnect>
-<section class="pt-4">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col col-md-8">
-                <h1 class="text-white">Current Weather For {{Current_Weather.data.api.data.location.name}}, {{Current_Weather.data.api.data.location.region}}</h1>
-                <p class="text-h3 text-muted style1">Last Updated: {{Current_Weather.data.api.data.current.last_updated}}</p>
-            </div>
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="session1.data.location"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="home" appConnect="local" -->
+<dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
+<dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class="col col-md-8">
+            <h1>Current Weather</h1>
         </div>
     </div>
-    <div class="container mb-3">
-        <div class="row">
-            <div class="col">
-                <div class="card bg-primary rounded border-secondary rounded-3">
-                    <div class="card-header">
-                        <div class="d-flex text-center align-items-center justify-content-center">
-                            <h1 class="mb-3">{{Current_Weather.data.api.data.current.temp_f.round(0)+'° - '+Current_Weather.data.api.data.current.condition.text}}</h1>
-                            <img class="img-fluid mb-3" dmx-bind:src="Current_Weather.data.api.data.current.condition.icon" height="30px">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row align-items-center mb-3">
+</div>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header style4 text-center">{{'Morning/Afternoon Weather For '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-body bg-primary">
+                    <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
+                    <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[0].icon" class="img-fluid rounded"></div>
+                    <div class="d-flex flex-row justify-content-around mb-2">
+                        <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[0].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[0].temperatureUnit}}</h5>
+                        <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[0].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[0].windSpeed}}</h5>
 
-
-
-                            <div class="col text-center">
-                                <h5 class="text-nowrap">Feels Like</h5>
-                                <p>{{Current_Weather.data.api.data.current.feelslike_f.round(0)+'°'}}</p>
-                            </div>
-                            <div class="col text-center">
-                                <h5 class="card-text text-nowrap">Wind</h5>
-                                <p>&nbsp;{{Current_Weather.data.api.data.current.wind_dir+' @ '+Current_Weather.data.api.data.current.wind_mph+'mph'}}</p>
-                            </div>
-                            <div class="col text-center">
-                                <h5 class="card-text text-nowrap">Humidity</h5>
-                                <p>&nbsp;{{Current_Weather.data.api.data.current.humidity+'%'}}</p>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col text-center">
-                                <h5 class="card-text text-nowrap">Visibility</h5>
-                                <p>&nbsp;{{Current_Weather.data.api.data.current.vis_miles+' miles'}}</p>
-                            </div>
-                            <div class="col text-center">
-                                <h5 class="card-text text-nowrap">Precipitation</h5>
-                                <p>&nbsp;{{Current_Weather.data.api.data.current.precip_in+' in.'}}&nbsp;</p>
-                            </div>
-                            <div class="col text-center">
-                                <h5 class="card-text text-nowrap">Clouds</h5>
-                                <p>{{Current_Weather.data.api.data.current.cloud+'%'}}</p>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="d-flex justify-content-center"><a href="#" class="btn btn-primary shadow bg-secondary btn-lg">See Forecast</a></div>
 
                     </div>
+                    <div class="d-flex justify-content-center mb-2">
+                        <h5 class="card-text">{{currentweatherdata.data.api1.data.properties.periods[0].detailedForecast}} </h5>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn text-center btn-secondary shadow">Go somewhere</a>
+                    </div>
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row row-cols-6 text-center" is="dmx-repeat" id="repeat1" dmx-bind:repeat="forecastdata.data.api.data.forecast.forecastday[0].hour">
-            <div class="mb-2 col-4 text-center">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h4 class="card-title">{{time.formatDate('h:mm a')}}</h4>
-                        <img dmx-bind:src="{{condition.icon}}">
-                        <p class="card-text">{{condition.text}}</p>
-                        <h6 class="card-text">{{temp_f.round(0)+'°'}}</h6>
+</div>
+<div class="container mt-2 mb-3">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header style4 text-center">{{'Evening/Overnight Weather For '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-body bg-primary">
+                    <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
+                    <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>
+                    <div class="d-flex flex-row justify-content-around mb-2">
+                        <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
+                        <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
+
+
                     </div>
+                    <div class="d-flex justify-content-center mb-2">
+                        <h5 class="card-text">{{currentweatherdata.data.api1.data.properties.periods[1].detailedForecast}} </h5>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="btn text-center btn-secondary shadow">Go somewhere</a>
+                    </div>
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
+<div class="d-flex justify-content-center">
+    <h1>Hourly</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-striped> <thead> <tr> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody is= text-center"="table table-striped> <thead> <tr> <th></th> <th></th> <th></th> <th></th> <th></th> <th></th> </tr> </thead> <tbody is="="table table-striped">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="forecastdata.data.api.data.forecast.forecastday[0].hour" id="tableRepeat2">
+                        <tr>
+
+                            <td dmx-text="time.formatDate('h:mm a')" class="style3 table-primary">
+
+                            </td>
+                            <td dmx-text="temp_f.round(0) + '°'"></td>
+                            <td dmx-text="'Rain '+chance_of_rain + '%'"></td>
+                            <td dmx-text="'Snow ' +chance_of_snow + '%'"></td>
+
+                            <td class="text-start">
+                                <a><img dmx-bind:src="condition.icon"></a>{{condition.text}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <meta name="ac:route" content="/search">
-</section>
-<meta name="ac:route" content="/search">
+
 <!-- New Wappler Page -->
