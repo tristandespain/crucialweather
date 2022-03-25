@@ -1,4 +1,4 @@
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="home" appConnect="local" -->
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="home" appConnect="local" -->
 <dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <div class="container">
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header style4 text-center">{{'Morning/Afternoon Weather For '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[0].name+' in '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
                 <div class="card-body bg-primary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[0].icon" class="img-fluid rounded"></div>
@@ -26,7 +26,6 @@
                         <h5 class="card-text">{{currentweatherdata.data.api1.data.properties.periods[0].detailedForecast}} </h5>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn text-center btn-secondary shadow">Go somewhere</a>
                     </div>
 
 
@@ -44,7 +43,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header style4 text-center">{{'Evening/Overnight Weather For '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[1].name+' in '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
                 <div class="card-body bg-primary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>
@@ -58,7 +57,6 @@
                         <h5 class="card-text">{{currentweatherdata.data.api1.data.properties.periods[1].detailedForecast}} </h5>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn text-center btn-secondary shadow">Go somewhere</a>
                     </div>
 
 
@@ -111,5 +109,3 @@
     </div>
 </div>
 <meta name="ac:route" content="/">
-
-<!-- New Wappler Page -->
