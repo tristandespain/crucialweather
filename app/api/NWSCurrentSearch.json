@@ -10,11 +10,1081 @@
   "exec": {
     "steps": [
       {
+        "name": "weatherapiforecast",
+        "module": "api",
+        "action": "send",
+        "options": {
+          "url": "{{'https://api.weatherapi.com/v1/forecast.json?key=56e65bbb262d45a5812192813210707&q='+$_GET.latlong+'&days=7&aqi=no&alerts=no'}}",
+          "schema": [
+            {
+              "type": "object",
+              "name": "data",
+              "sub": [
+                {
+                  "type": "object",
+                  "name": "location",
+                  "sub": [
+                    {
+                      "type": "text",
+                      "name": "name"
+                    },
+                    {
+                      "type": "text",
+                      "name": "region"
+                    },
+                    {
+                      "type": "text",
+                      "name": "country"
+                    },
+                    {
+                      "type": "number",
+                      "name": "lat"
+                    },
+                    {
+                      "type": "number",
+                      "name": "lon"
+                    },
+                    {
+                      "type": "text",
+                      "name": "tz_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "localtime_epoch"
+                    },
+                    {
+                      "type": "text",
+                      "name": "localtime"
+                    }
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "current",
+                  "sub": [
+                    {
+                      "type": "number",
+                      "name": "last_updated_epoch"
+                    },
+                    {
+                      "type": "text",
+                      "name": "last_updated"
+                    },
+                    {
+                      "type": "number",
+                      "name": "temp_c"
+                    },
+                    {
+                      "type": "number",
+                      "name": "temp_f"
+                    },
+                    {
+                      "type": "number",
+                      "name": "is_day"
+                    },
+                    {
+                      "type": "object",
+                      "name": "condition",
+                      "sub": [
+                        {
+                          "type": "text",
+                          "name": "text"
+                        },
+                        {
+                          "type": "text",
+                          "name": "icon"
+                        },
+                        {
+                          "type": "number",
+                          "name": "code"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "number",
+                      "name": "wind_mph"
+                    },
+                    {
+                      "type": "number",
+                      "name": "wind_kph"
+                    },
+                    {
+                      "type": "number",
+                      "name": "wind_degree"
+                    },
+                    {
+                      "type": "text",
+                      "name": "wind_dir"
+                    },
+                    {
+                      "type": "number",
+                      "name": "pressure_mb"
+                    },
+                    {
+                      "type": "number",
+                      "name": "pressure_in"
+                    },
+                    {
+                      "type": "number",
+                      "name": "precip_mm"
+                    },
+                    {
+                      "type": "number",
+                      "name": "precip_in"
+                    },
+                    {
+                      "type": "number",
+                      "name": "humidity"
+                    },
+                    {
+                      "type": "number",
+                      "name": "cloud"
+                    },
+                    {
+                      "type": "number",
+                      "name": "feelslike_c"
+                    },
+                    {
+                      "type": "number",
+                      "name": "feelslike_f"
+                    },
+                    {
+                      "type": "number",
+                      "name": "vis_km"
+                    },
+                    {
+                      "type": "number",
+                      "name": "vis_miles"
+                    },
+                    {
+                      "type": "number",
+                      "name": "uv"
+                    },
+                    {
+                      "type": "number",
+                      "name": "gust_mph"
+                    },
+                    {
+                      "type": "number",
+                      "name": "gust_kph"
+                    }
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "forecast",
+                  "sub": [
+                    {
+                      "type": "array",
+                      "name": "forecastday",
+                      "sub": [
+                        {
+                          "type": "text",
+                          "name": "date"
+                        },
+                        {
+                          "type": "number",
+                          "name": "date_epoch"
+                        },
+                        {
+                          "type": "object",
+                          "name": "day",
+                          "sub": [
+                            {
+                              "type": "number",
+                              "name": "maxtemp_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "maxtemp_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "mintemp_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "mintemp_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "avgtemp_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "avgtemp_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "maxwind_mph"
+                            },
+                            {
+                              "type": "number",
+                              "name": "maxwind_kph"
+                            },
+                            {
+                              "type": "number",
+                              "name": "totalprecip_mm"
+                            },
+                            {
+                              "type": "number",
+                              "name": "totalprecip_in"
+                            },
+                            {
+                              "type": "number",
+                              "name": "avgvis_km"
+                            },
+                            {
+                              "type": "number",
+                              "name": "avgvis_miles"
+                            },
+                            {
+                              "type": "number",
+                              "name": "avghumidity"
+                            },
+                            {
+                              "type": "number",
+                              "name": "daily_will_it_rain"
+                            },
+                            {
+                              "type": "number",
+                              "name": "daily_chance_of_rain"
+                            },
+                            {
+                              "type": "number",
+                              "name": "daily_will_it_snow"
+                            },
+                            {
+                              "type": "number",
+                              "name": "daily_chance_of_snow"
+                            },
+                            {
+                              "type": "object",
+                              "name": "condition",
+                              "sub": [
+                                {
+                                  "type": "text",
+                                  "name": "text"
+                                },
+                                {
+                                  "type": "text",
+                                  "name": "icon"
+                                },
+                                {
+                                  "type": "number",
+                                  "name": "code"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "number",
+                              "name": "uv"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "object",
+                          "name": "astro",
+                          "sub": [
+                            {
+                              "type": "text",
+                              "name": "sunrise"
+                            },
+                            {
+                              "type": "text",
+                              "name": "sunset"
+                            },
+                            {
+                              "type": "text",
+                              "name": "moonrise"
+                            },
+                            {
+                              "type": "text",
+                              "name": "moonset"
+                            },
+                            {
+                              "type": "text",
+                              "name": "moon_phase"
+                            },
+                            {
+                              "type": "text",
+                              "name": "moon_illumination"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "name": "hour",
+                          "sub": [
+                            {
+                              "type": "number",
+                              "name": "time_epoch"
+                            },
+                            {
+                              "type": "text",
+                              "name": "time"
+                            },
+                            {
+                              "type": "number",
+                              "name": "temp_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "temp_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "is_day"
+                            },
+                            {
+                              "type": "object",
+                              "name": "condition",
+                              "sub": [
+                                {
+                                  "type": "text",
+                                  "name": "text"
+                                },
+                                {
+                                  "type": "text",
+                                  "name": "icon"
+                                },
+                                {
+                                  "type": "number",
+                                  "name": "code"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "number",
+                              "name": "wind_mph"
+                            },
+                            {
+                              "type": "number",
+                              "name": "wind_kph"
+                            },
+                            {
+                              "type": "number",
+                              "name": "wind_degree"
+                            },
+                            {
+                              "type": "text",
+                              "name": "wind_dir"
+                            },
+                            {
+                              "type": "number",
+                              "name": "pressure_mb"
+                            },
+                            {
+                              "type": "number",
+                              "name": "pressure_in"
+                            },
+                            {
+                              "type": "number",
+                              "name": "precip_mm"
+                            },
+                            {
+                              "type": "number",
+                              "name": "precip_in"
+                            },
+                            {
+                              "type": "number",
+                              "name": "humidity"
+                            },
+                            {
+                              "type": "number",
+                              "name": "cloud"
+                            },
+                            {
+                              "type": "number",
+                              "name": "feelslike_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "feelslike_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "windchill_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "windchill_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "heatindex_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "heatindex_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "dewpoint_c"
+                            },
+                            {
+                              "type": "number",
+                              "name": "dewpoint_f"
+                            },
+                            {
+                              "type": "number",
+                              "name": "will_it_rain"
+                            },
+                            {
+                              "type": "number",
+                              "name": "chance_of_rain"
+                            },
+                            {
+                              "type": "number",
+                              "name": "will_it_snow"
+                            },
+                            {
+                              "type": "number",
+                              "name": "chance_of_snow"
+                            },
+                            {
+                              "type": "number",
+                              "name": "vis_km"
+                            },
+                            {
+                              "type": "number",
+                              "name": "vis_miles"
+                            },
+                            {
+                              "type": "number",
+                              "name": "gust_mph"
+                            },
+                            {
+                              "type": "number",
+                              "name": "gust_kph"
+                            },
+                            {
+                              "type": "number",
+                              "name": "uv"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "headers",
+              "sub": [
+                {
+                  "type": "text",
+                  "name": "cache-control"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-cache"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-cachedat"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-edgestorageid"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-proxyver"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-pullzone"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-requestcountrycode"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-requestid"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-requestpullcode"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-requestpullsuccess"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-status"
+                },
+                {
+                  "type": "text",
+                  "name": "cdn-uid"
+                },
+                {
+                  "type": "text",
+                  "name": "content-encoding"
+                },
+                {
+                  "type": "text",
+                  "name": "content-type"
+                },
+                {
+                  "type": "text",
+                  "name": "date"
+                },
+                {
+                  "type": "text",
+                  "name": "server"
+                },
+                {
+                  "type": "text",
+                  "name": "vary"
+                }
+              ]
+            }
+          ]
+        },
+        "output": true,
+        "meta": [
+          {
+            "type": "object",
+            "name": "data",
+            "sub": [
+              {
+                "type": "object",
+                "name": "location",
+                "sub": [
+                  {
+                    "type": "text",
+                    "name": "name"
+                  },
+                  {
+                    "type": "text",
+                    "name": "region"
+                  },
+                  {
+                    "type": "text",
+                    "name": "country"
+                  },
+                  {
+                    "type": "number",
+                    "name": "lat"
+                  },
+                  {
+                    "type": "number",
+                    "name": "lon"
+                  },
+                  {
+                    "type": "text",
+                    "name": "tz_id"
+                  },
+                  {
+                    "type": "number",
+                    "name": "localtime_epoch"
+                  },
+                  {
+                    "type": "text",
+                    "name": "localtime"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "current",
+                "sub": [
+                  {
+                    "type": "number",
+                    "name": "last_updated_epoch"
+                  },
+                  {
+                    "type": "text",
+                    "name": "last_updated"
+                  },
+                  {
+                    "type": "number",
+                    "name": "temp_c"
+                  },
+                  {
+                    "type": "number",
+                    "name": "temp_f"
+                  },
+                  {
+                    "type": "number",
+                    "name": "is_day"
+                  },
+                  {
+                    "type": "object",
+                    "name": "condition",
+                    "sub": [
+                      {
+                        "type": "text",
+                        "name": "text"
+                      },
+                      {
+                        "type": "text",
+                        "name": "icon"
+                      },
+                      {
+                        "type": "number",
+                        "name": "code"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "number",
+                    "name": "wind_mph"
+                  },
+                  {
+                    "type": "number",
+                    "name": "wind_kph"
+                  },
+                  {
+                    "type": "number",
+                    "name": "wind_degree"
+                  },
+                  {
+                    "type": "text",
+                    "name": "wind_dir"
+                  },
+                  {
+                    "type": "number",
+                    "name": "pressure_mb"
+                  },
+                  {
+                    "type": "number",
+                    "name": "pressure_in"
+                  },
+                  {
+                    "type": "number",
+                    "name": "precip_mm"
+                  },
+                  {
+                    "type": "number",
+                    "name": "precip_in"
+                  },
+                  {
+                    "type": "number",
+                    "name": "humidity"
+                  },
+                  {
+                    "type": "number",
+                    "name": "cloud"
+                  },
+                  {
+                    "type": "number",
+                    "name": "feelslike_c"
+                  },
+                  {
+                    "type": "number",
+                    "name": "feelslike_f"
+                  },
+                  {
+                    "type": "number",
+                    "name": "vis_km"
+                  },
+                  {
+                    "type": "number",
+                    "name": "vis_miles"
+                  },
+                  {
+                    "type": "number",
+                    "name": "uv"
+                  },
+                  {
+                    "type": "number",
+                    "name": "gust_mph"
+                  },
+                  {
+                    "type": "number",
+                    "name": "gust_kph"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "name": "forecast",
+                "sub": [
+                  {
+                    "type": "array",
+                    "name": "forecastday",
+                    "sub": [
+                      {
+                        "type": "text",
+                        "name": "date"
+                      },
+                      {
+                        "type": "number",
+                        "name": "date_epoch"
+                      },
+                      {
+                        "type": "object",
+                        "name": "day",
+                        "sub": [
+                          {
+                            "type": "number",
+                            "name": "maxtemp_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "maxtemp_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "mintemp_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "mintemp_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "avgtemp_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "avgtemp_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "maxwind_mph"
+                          },
+                          {
+                            "type": "number",
+                            "name": "maxwind_kph"
+                          },
+                          {
+                            "type": "number",
+                            "name": "totalprecip_mm"
+                          },
+                          {
+                            "type": "number",
+                            "name": "totalprecip_in"
+                          },
+                          {
+                            "type": "number",
+                            "name": "avgvis_km"
+                          },
+                          {
+                            "type": "number",
+                            "name": "avgvis_miles"
+                          },
+                          {
+                            "type": "number",
+                            "name": "avghumidity"
+                          },
+                          {
+                            "type": "number",
+                            "name": "daily_will_it_rain"
+                          },
+                          {
+                            "type": "number",
+                            "name": "daily_chance_of_rain"
+                          },
+                          {
+                            "type": "number",
+                            "name": "daily_will_it_snow"
+                          },
+                          {
+                            "type": "number",
+                            "name": "daily_chance_of_snow"
+                          },
+                          {
+                            "type": "object",
+                            "name": "condition",
+                            "sub": [
+                              {
+                                "type": "text",
+                                "name": "text"
+                              },
+                              {
+                                "type": "text",
+                                "name": "icon"
+                              },
+                              {
+                                "type": "number",
+                                "name": "code"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "number",
+                            "name": "uv"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "name": "astro",
+                        "sub": [
+                          {
+                            "type": "text",
+                            "name": "sunrise"
+                          },
+                          {
+                            "type": "text",
+                            "name": "sunset"
+                          },
+                          {
+                            "type": "text",
+                            "name": "moonrise"
+                          },
+                          {
+                            "type": "text",
+                            "name": "moonset"
+                          },
+                          {
+                            "type": "text",
+                            "name": "moon_phase"
+                          },
+                          {
+                            "type": "text",
+                            "name": "moon_illumination"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "name": "hour",
+                        "sub": [
+                          {
+                            "type": "number",
+                            "name": "time_epoch"
+                          },
+                          {
+                            "type": "text",
+                            "name": "time"
+                          },
+                          {
+                            "type": "number",
+                            "name": "temp_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "temp_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "is_day"
+                          },
+                          {
+                            "type": "object",
+                            "name": "condition",
+                            "sub": [
+                              {
+                                "type": "text",
+                                "name": "text"
+                              },
+                              {
+                                "type": "text",
+                                "name": "icon"
+                              },
+                              {
+                                "type": "number",
+                                "name": "code"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "number",
+                            "name": "wind_mph"
+                          },
+                          {
+                            "type": "number",
+                            "name": "wind_kph"
+                          },
+                          {
+                            "type": "number",
+                            "name": "wind_degree"
+                          },
+                          {
+                            "type": "text",
+                            "name": "wind_dir"
+                          },
+                          {
+                            "type": "number",
+                            "name": "pressure_mb"
+                          },
+                          {
+                            "type": "number",
+                            "name": "pressure_in"
+                          },
+                          {
+                            "type": "number",
+                            "name": "precip_mm"
+                          },
+                          {
+                            "type": "number",
+                            "name": "precip_in"
+                          },
+                          {
+                            "type": "number",
+                            "name": "humidity"
+                          },
+                          {
+                            "type": "number",
+                            "name": "cloud"
+                          },
+                          {
+                            "type": "number",
+                            "name": "feelslike_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "feelslike_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "windchill_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "windchill_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "heatindex_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "heatindex_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "dewpoint_c"
+                          },
+                          {
+                            "type": "number",
+                            "name": "dewpoint_f"
+                          },
+                          {
+                            "type": "number",
+                            "name": "will_it_rain"
+                          },
+                          {
+                            "type": "number",
+                            "name": "chance_of_rain"
+                          },
+                          {
+                            "type": "number",
+                            "name": "will_it_snow"
+                          },
+                          {
+                            "type": "number",
+                            "name": "chance_of_snow"
+                          },
+                          {
+                            "type": "number",
+                            "name": "vis_km"
+                          },
+                          {
+                            "type": "number",
+                            "name": "vis_miles"
+                          },
+                          {
+                            "type": "number",
+                            "name": "gust_mph"
+                          },
+                          {
+                            "type": "number",
+                            "name": "gust_kph"
+                          },
+                          {
+                            "type": "number",
+                            "name": "uv"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "headers",
+            "sub": [
+              {
+                "type": "text",
+                "name": "cache-control"
+              },
+              {
+                "type": "text",
+                "name": "cdn-cache"
+              },
+              {
+                "type": "text",
+                "name": "cdn-cachedat"
+              },
+              {
+                "type": "text",
+                "name": "cdn-edgestorageid"
+              },
+              {
+                "type": "text",
+                "name": "cdn-proxyver"
+              },
+              {
+                "type": "text",
+                "name": "cdn-pullzone"
+              },
+              {
+                "type": "text",
+                "name": "cdn-requestcountrycode"
+              },
+              {
+                "type": "text",
+                "name": "cdn-requestid"
+              },
+              {
+                "type": "text",
+                "name": "cdn-requestpullcode"
+              },
+              {
+                "type": "text",
+                "name": "cdn-requestpullsuccess"
+              },
+              {
+                "type": "text",
+                "name": "cdn-status"
+              },
+              {
+                "type": "text",
+                "name": "cdn-uid"
+              },
+              {
+                "type": "text",
+                "name": "content-encoding"
+              },
+              {
+                "type": "text",
+                "name": "content-type"
+              },
+              {
+                "type": "text",
+                "name": "date"
+              },
+              {
+                "type": "text",
+                "name": "server"
+              },
+              {
+                "type": "text",
+                "name": "vary"
+              }
+            ]
+          }
+        ],
+        "outputType": "object"
+      },
+      {
         "name": "api",
         "module": "api",
         "action": "send",
         "options": {
-          "url": "{{'https://api.weather.gov/points/'+$_GET.latlong}}",
+          "url": "{{'https://api.weather.gov/points/'+weatherapiforecast.data.location.lat+','+weatherapiforecast.data.location.lon}}",
           "schema": [
             {
               "type": "object",
