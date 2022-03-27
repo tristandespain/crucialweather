@@ -1,0 +1,25 @@
+<dmx-serverconnect id="nwsforecast" url="/api/NWSCurrent" dmx-param:latlong="session1.data.location"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="forecast" appConnect="local" -->
+<div class="container">
+    <div class="row" is="dmx-repeat" id="repeat1" dmx-bind:repeat="nwsforecast.data.api1.data.properties.periods">
+        <div class="col">
+            <div class="card">
+                <div class="card-header text-center">{{name}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{shortForecast}}</h4>
+                    <div class="d-flex">
+                        <img dmx-bind:src="icon">
+                    </div>
+                    <div class="d-flex">
+                        <p><i class="fas fa-thermometer-half"></i>{{temperature}}° {{temperatureUnit}}
+                        </p>
+                        <p><i class="fas fa-wind"></i>{{windDirection}} @ {{windSpeed}}mph
+                        </p>
+                    </div>
+                    <p class="card-text">{{detailedForecast}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<meta name="ac:route" content="/forecast">

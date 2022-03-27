@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[0].name+' in '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[0].name+' in '+currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+currentweatherdata.data.api.data.properties.relativeLocation.properties.state}}</div>
                 <div class="card-body bg-primary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[0].icon" class="img-fluid rounded"></div>
@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[1].name+' in '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[1].name+' in '+currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+currentweatherdata.data.api.data.properties.relativeLocation.properties.state}}</div>
                 <div class="card-body bg-primary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>
@@ -67,11 +67,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Start time</th>
-                            <th>Temperature</th>
-                            <th>Wind speed</th>
-                            <th>Icon</th>
-                            <th>Short forecast</th>
                         </tr>
                     </thead>
                     <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="currentweatherdata.data.api2.data.properties.periods" id="tableRepeat2">

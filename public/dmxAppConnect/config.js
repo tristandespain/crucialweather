@@ -4,6 +4,10 @@ dmx.config({
       {
         "type": "text",
         "name": "location"
+      },
+      {
+        "type": "text",
+        "name": "locationname"
       }
     ]
   },
@@ -1000,6 +1004,65 @@ dmx.config({
         }
       ],
       "outputType": "object"
+    }
+  },
+  "forecast": {
+    "repeat1": {
+      "meta": [
+        {
+          "type": "number",
+          "name": "number"
+        },
+        {
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "type": "text",
+          "name": "startTime"
+        },
+        {
+          "type": "text",
+          "name": "endTime"
+        },
+        {
+          "type": "boolean",
+          "name": "isDaytime"
+        },
+        {
+          "type": "number",
+          "name": "temperature"
+        },
+        {
+          "type": "text",
+          "name": "temperatureUnit"
+        },
+        {
+          "type": "text",
+          "name": "temperatureTrend"
+        },
+        {
+          "type": "text",
+          "name": "windSpeed"
+        },
+        {
+          "type": "text",
+          "name": "windDirection"
+        },
+        {
+          "type": "text",
+          "name": "icon"
+        },
+        {
+          "type": "text",
+          "name": "shortForecast"
+        },
+        {
+          "type": "text",
+          "name": "detailedForecast"
+        }
+      ],
+      "outputType": "array"
     }
   }
 });

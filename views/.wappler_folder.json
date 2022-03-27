@@ -10,5 +10,9 @@
   "home.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "forecast.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }
