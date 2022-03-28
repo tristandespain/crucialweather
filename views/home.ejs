@@ -1,13 +1,11 @@
 <div is="dmx-browser" id="browser1"></div>
 <dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
 
-<dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
-<dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <div class="container mt-2">
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[0].name+' in '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[0].name+' in '+currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+currentweatherdata.data.api.data.properties.relativeLocation.properties.state}}</div>
                 <div class="card-body bg-primary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[0].icon" class="img-fluid rounded"></div>
@@ -23,7 +21,7 @@
                     <div class="d-flex justify-content-center">
                     </div>
                     <div class="d-flex justify-content-center mt-2">
-                        <button id="btn1" class="btn btn-secondary" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);browser1.goto('/forecast')">View Forecast</button>
+                        <button id="btn1" class="btn btn-secondary" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);session1.set('locationname',content.currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+content.currentweatherdata.data.api.data.properties.relativeLocation.properties.state);browser1.goto('/forecast')">View Forecast</button>
                     </div>
 
 
@@ -41,7 +39,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[1].name+' in '+Current_Weather.data.api.data.location.name+', '+Current_Weather.data.api.data.location.region}}</div>
+                <div class="card-header style4 text-center">{{currentweatherdata.data.api1.data.properties.periods[1].name+' in '+currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+currentweatherdata.data.api.data.properties.relativeLocation.properties.state}}</div>
                 <div class="card-body bg-primary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>

@@ -1,6 +1,9 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="forecast" appConnect="local" -->
 <dmx-serverconnect id="nwsforecastdata" url="/api/NWSForecast" dmx-param:office="session1.data.office" dmx-param:gridx="session1.data.gridx" dmx-param:gridy="session1.data.gridy"></dmx-serverconnect>
 <div class="container">
+    <h1 class="text-center">Forecast For {{session1.data.locationname}}</h1>
+</div>
+<div class="container">
     <div class="row row-cols-2" is="dmx-repeat" id="repeat1" dmx-bind:repeat="nwsforecastdata.data.api.data.properties.periods">
         <div class="col mt-3">
             <div class="card h-100">
