@@ -1,4 +1,6 @@
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{}}" -->
+<div is="dmx-browser" id="browser1"></div>
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
+
 <dmx-serverconnect id="Current_Weather" url="/api/Current" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <dmx-serverconnect id="forecastdata" url="/api/Forecast" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect>
 <div class="container mt-2">
@@ -19,6 +21,9 @@
                         <h5 class="card-text">{{currentweatherdata.data.api1.data.properties.periods[0].detailedForecast}} </h5>
                     </div>
                     <div class="d-flex justify-content-center">
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button id="btn1" class="btn btn-secondary" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);browser1.goto('/forecast')">View Forecast</button>
                     </div>
 
 
@@ -77,7 +82,7 @@
                     </thead>
                     <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="currentweatherdata.data.nwshourly.data.properties.periods" id="tableRepeat1">
                         <tr>
-                            <td dmx-text="startTime.formatDate('h:mm a')"></td>
+                            <td dmx-text="' '+startTime.formatDate('M/dd h:mm a')"></td>
                             <td dmx-text="temperature+'°'"></td>
                             <td dmx-text="windSpeed"></td>
                             <td>

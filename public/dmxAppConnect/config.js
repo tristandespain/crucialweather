@@ -8,6 +8,18 @@ dmx.config({
       {
         "type": "text",
         "name": "locationname"
+      },
+      {
+        "type": "text",
+        "name": "office"
+      },
+      {
+        "type": "text",
+        "name": "gridx"
+      },
+      {
+        "type": "text",
+        "name": "gridy"
       }
     ]
   },

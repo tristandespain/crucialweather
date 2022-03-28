@@ -3,7 +3,15 @@
     "$_GET": [
       {
         "type": "text",
-        "name": "latlong"
+        "name": "office"
+      },
+      {
+        "type": "text",
+        "name": "gridx"
+      },
+      {
+        "type": "text",
+        "name": "gridy"
       }
     ]
   },
@@ -13,7 +21,7 @@
       "module": "api",
       "action": "send",
       "options": {
-        "url": "{{'https://api.weatherapi.com/v1/forecast.json?key=56e65bbb262d45a5812192813210707&q='+$_GET.latlong+'&days=7&aqi=no&alerts=no'}}",
+        "url": "{{'https://api.weather.gov/gridpoints/'+$_GET.office+'/'+$_GET.gridx+','+$_GET.gridy+'/forecast'}}",
         "schema": [
           {
             "type": "object",
