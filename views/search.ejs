@@ -8,8 +8,8 @@
                     <h3 class="text-center placeholder-glow">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2 placeholder-glow"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[0].icon" class="img-fluid rounded"></div>
                     <div class="d-flex flex-row justify-content-around mb-2 placeholder-glow">
-                        <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[0].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[0].temperatureUnit}}</h5>
-                        <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[0].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[0].windSpeed}}</h5>
+                        <h5 class="card-text">&nbsp;🌡️{{currentweatherdata.data.api1.data.properties.periods[0].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[0].temperatureUnit}}</h5>
+                        <h5 class="card-text">&nbsp;💨{{currentweatherdata.data.api1.data.properties.periods[0].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[0].windSpeed}}</h5>
 
 
                     </div>
@@ -41,8 +41,8 @@
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>
                     <div class="d-flex flex-row justify-content-around mb-2">
-                        <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
-                        <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
+                        <h5 class="card-text">&nbsp;🌡️{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
+                        <h5 class="card-text">&nbsp;💨{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
 
 
                     </div>

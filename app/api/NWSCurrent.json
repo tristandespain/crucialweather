@@ -1434,6 +1434,596 @@
           }
         ],
         "outputType": "object"
+      },
+      {
+        "name": "alerts",
+        "module": "api",
+        "action": "send",
+        "options": {
+          "url": "{{'https://api.weather.gov/alerts?point='+$_GET.latlong}}",
+          "schema": [
+            {
+              "type": "object",
+              "name": "data",
+              "sub": [
+                {
+                  "type": "array",
+                  "name": "@context",
+                  "sub": [
+                    {
+                      "type": "text",
+                      "name": "$value"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "name": "type"
+                },
+                {
+                  "type": "array",
+                  "name": "features",
+                  "sub": [
+                    {
+                      "type": "text",
+                      "name": "id"
+                    },
+                    {
+                      "type": "text",
+                      "name": "type"
+                    },
+                    {
+                      "type": "text",
+                      "name": "geometry"
+                    },
+                    {
+                      "type": "object",
+                      "name": "properties",
+                      "sub": [
+                        {
+                          "type": "text",
+                          "name": "@id"
+                        },
+                        {
+                          "type": "text",
+                          "name": "@type"
+                        },
+                        {
+                          "type": "text",
+                          "name": "id"
+                        },
+                        {
+                          "type": "text",
+                          "name": "areaDesc"
+                        },
+                        {
+                          "type": "object",
+                          "name": "geocode",
+                          "sub": [
+                            {
+                              "type": "array",
+                              "name": "SAME",
+                              "sub": [
+                                {
+                                  "type": "text",
+                                  "name": "$value"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "array",
+                              "name": "UGC",
+                              "sub": [
+                                {
+                                  "type": "text",
+                                  "name": "$value"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "name": "affectedZones",
+                          "sub": [
+                            {
+                              "type": "text",
+                              "name": "$value"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "array",
+                          "name": "references",
+                          "sub": [
+                            {
+                              "type": "text",
+                              "name": "@id"
+                            },
+                            {
+                              "type": "text",
+                              "name": "identifier"
+                            },
+                            {
+                              "type": "text",
+                              "name": "sender"
+                            },
+                            {
+                              "type": "text",
+                              "name": "sent"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "name": "sent"
+                        },
+                        {
+                          "type": "text",
+                          "name": "effective"
+                        },
+                        {
+                          "type": "text",
+                          "name": "onset"
+                        },
+                        {
+                          "type": "text",
+                          "name": "expires"
+                        },
+                        {
+                          "type": "text",
+                          "name": "ends"
+                        },
+                        {
+                          "type": "text",
+                          "name": "status"
+                        },
+                        {
+                          "type": "text",
+                          "name": "messageType"
+                        },
+                        {
+                          "type": "text",
+                          "name": "category"
+                        },
+                        {
+                          "type": "text",
+                          "name": "severity"
+                        },
+                        {
+                          "type": "text",
+                          "name": "certainty"
+                        },
+                        {
+                          "type": "text",
+                          "name": "urgency"
+                        },
+                        {
+                          "type": "text",
+                          "name": "event"
+                        },
+                        {
+                          "type": "text",
+                          "name": "sender"
+                        },
+                        {
+                          "type": "text",
+                          "name": "senderName"
+                        },
+                        {
+                          "type": "text",
+                          "name": "headline"
+                        },
+                        {
+                          "type": "text",
+                          "name": "description"
+                        },
+                        {
+                          "type": "text",
+                          "name": "instruction"
+                        },
+                        {
+                          "type": "text",
+                          "name": "response"
+                        },
+                        {
+                          "type": "array",
+                          "name": "parameters",
+                          "sub": [
+                            {
+                              "type": "text",
+                              "name": "$value"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "name": "title"
+                },
+                {
+                  "type": "text",
+                  "name": "updated"
+                },
+                {
+                  "type": "object",
+                  "name": "pagination",
+                  "sub": [
+                    {
+                      "type": "text",
+                      "name": "next"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "headers",
+              "sub": [
+                {
+                  "type": "text",
+                  "name": "access-control-allow-origin"
+                },
+                {
+                  "type": "text",
+                  "name": "access-control-expose-headers"
+                },
+                {
+                  "type": "text",
+                  "name": "cache-control"
+                },
+                {
+                  "type": "text",
+                  "name": "content-encoding"
+                },
+                {
+                  "type": "text",
+                  "name": "content-length"
+                },
+                {
+                  "type": "text",
+                  "name": "content-type"
+                },
+                {
+                  "type": "text",
+                  "name": "date"
+                },
+                {
+                  "type": "text",
+                  "name": "expires"
+                },
+                {
+                  "type": "text",
+                  "name": "last-modified"
+                },
+                {
+                  "type": "text",
+                  "name": "server"
+                },
+                {
+                  "type": "text",
+                  "name": "strict-transport-security"
+                },
+                {
+                  "type": "text",
+                  "name": "vary"
+                },
+                {
+                  "type": "text",
+                  "name": "x-correlation-id"
+                },
+                {
+                  "type": "text",
+                  "name": "x-edge-request-id"
+                },
+                {
+                  "type": "text",
+                  "name": "x-request-id"
+                },
+                {
+                  "type": "text",
+                  "name": "x-server-id"
+                }
+              ]
+            }
+          ]
+        },
+        "output": true,
+        "meta": [
+          {
+            "type": "object",
+            "name": "data",
+            "sub": [
+              {
+                "type": "array",
+                "name": "@context",
+                "sub": [
+                  {
+                    "type": "text",
+                    "name": "$value"
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "type"
+              },
+              {
+                "type": "array",
+                "name": "features",
+                "sub": [
+                  {
+                    "type": "text",
+                    "name": "id"
+                  },
+                  {
+                    "type": "text",
+                    "name": "type"
+                  },
+                  {
+                    "type": "text",
+                    "name": "geometry"
+                  },
+                  {
+                    "type": "object",
+                    "name": "properties",
+                    "sub": [
+                      {
+                        "type": "text",
+                        "name": "@id"
+                      },
+                      {
+                        "type": "text",
+                        "name": "@type"
+                      },
+                      {
+                        "type": "text",
+                        "name": "id"
+                      },
+                      {
+                        "type": "text",
+                        "name": "areaDesc"
+                      },
+                      {
+                        "type": "object",
+                        "name": "geocode",
+                        "sub": [
+                          {
+                            "type": "array",
+                            "name": "SAME",
+                            "sub": [
+                              {
+                                "type": "text",
+                                "name": "$value"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "name": "UGC",
+                            "sub": [
+                              {
+                                "type": "text",
+                                "name": "$value"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "name": "affectedZones",
+                        "sub": [
+                          {
+                            "type": "text",
+                            "name": "$value"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "array",
+                        "name": "references",
+                        "sub": [
+                          {
+                            "type": "text",
+                            "name": "@id"
+                          },
+                          {
+                            "type": "text",
+                            "name": "identifier"
+                          },
+                          {
+                            "type": "text",
+                            "name": "sender"
+                          },
+                          {
+                            "type": "text",
+                            "name": "sent"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "name": "sent"
+                      },
+                      {
+                        "type": "text",
+                        "name": "effective"
+                      },
+                      {
+                        "type": "text",
+                        "name": "onset"
+                      },
+                      {
+                        "type": "text",
+                        "name": "expires"
+                      },
+                      {
+                        "type": "text",
+                        "name": "ends"
+                      },
+                      {
+                        "type": "text",
+                        "name": "status"
+                      },
+                      {
+                        "type": "text",
+                        "name": "messageType"
+                      },
+                      {
+                        "type": "text",
+                        "name": "category"
+                      },
+                      {
+                        "type": "text",
+                        "name": "severity"
+                      },
+                      {
+                        "type": "text",
+                        "name": "certainty"
+                      },
+                      {
+                        "type": "text",
+                        "name": "urgency"
+                      },
+                      {
+                        "type": "text",
+                        "name": "event"
+                      },
+                      {
+                        "type": "text",
+                        "name": "sender"
+                      },
+                      {
+                        "type": "text",
+                        "name": "senderName"
+                      },
+                      {
+                        "type": "text",
+                        "name": "headline"
+                      },
+                      {
+                        "type": "text",
+                        "name": "description"
+                      },
+                      {
+                        "type": "text",
+                        "name": "instruction"
+                      },
+                      {
+                        "type": "text",
+                        "name": "response"
+                      },
+                      {
+                        "type": "array",
+                        "name": "parameters",
+                        "sub": [
+                          {
+                            "type": "text",
+                            "name": "$value"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "text",
+                "name": "title"
+              },
+              {
+                "type": "text",
+                "name": "updated"
+              },
+              {
+                "type": "object",
+                "name": "pagination",
+                "sub": [
+                  {
+                    "type": "text",
+                    "name": "next"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "name": "headers",
+            "sub": [
+              {
+                "type": "text",
+                "name": "access-control-allow-origin"
+              },
+              {
+                "type": "text",
+                "name": "access-control-expose-headers"
+              },
+              {
+                "type": "text",
+                "name": "cache-control"
+              },
+              {
+                "type": "text",
+                "name": "content-encoding"
+              },
+              {
+                "type": "text",
+                "name": "content-length"
+              },
+              {
+                "type": "text",
+                "name": "content-type"
+              },
+              {
+                "type": "text",
+                "name": "date"
+              },
+              {
+                "type": "text",
+                "name": "expires"
+              },
+              {
+                "type": "text",
+                "name": "last-modified"
+              },
+              {
+                "type": "text",
+                "name": "server"
+              },
+              {
+                "type": "text",
+                "name": "strict-transport-security"
+              },
+              {
+                "type": "text",
+                "name": "vary"
+              },
+              {
+                "type": "text",
+                "name": "x-correlation-id"
+              },
+              {
+                "type": "text",
+                "name": "x-edge-request-id"
+              },
+              {
+                "type": "text",
+                "name": "x-request-id"
+              },
+              {
+                "type": "text",
+                "name": "x-server-id"
+              }
+            ]
+          }
+        ],
+        "outputType": "object"
       }
     ]
   }

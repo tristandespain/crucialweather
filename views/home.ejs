@@ -1,6 +1,15 @@
 <div is="dmx-browser" id="browser1"></div>
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="darkly" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="list-group" is="dmx-repeat" id="repeat1" dmx-bind:repeat="currentweatherdata.data.alerts.data">
+                <a href="#" class="list-group-item list-group-item-action" id="itemAction1">{{title}}</a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container mt-2">
     <div class="row">
         <div class="col">
@@ -10,8 +19,8 @@
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[0].icon" class="img-fluid rounded"></div>
                     <div class="d-flex flex-row justify-content-around mb-2">
-                        <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[0].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[0].temperatureUnit}}</h5>
-                        <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[0].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[0].windSpeed}}</h5>
+                        <h5 class="card-text">&nbsp;🌡️{{currentweatherdata.data.api1.data.properties.periods[0].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[0].temperatureUnit}}</h5>
+                        <h5 class="card-text">&nbsp;💨{{currentweatherdata.data.api1.data.properties.periods[0].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[0].windSpeed}}</h5>
 
 
                     </div>
@@ -44,8 +53,8 @@
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
                     <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>
                     <div class="d-flex flex-row justify-content-around mb-2">
-                        <h5 class="card-text"><i class="fas fa-thermometer-half"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
-                        <h5 class="card-text"><i class="fas fa-wind"></i>&nbsp;{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
+                        <h5 class="card-text">&nbsp;🌡️{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
+                        <h5 class="card-text">&nbsp;💨{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
 
 
                     </div>
@@ -80,9 +89,9 @@
                     </thead>
                     <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="currentweatherdata.data.nwshourly.data.properties.periods" id="tableRepeat1">
                         <tr>
-                            <td dmx-text="' '+startTime.formatDate('M/dd h:mm a')"></td>
-                            <td dmx-text="temperature+'°'"></td>
-                            <td dmx-text="windSpeed"></td>
+                            <td dmx-text="'📅 '+startTime.formatDate('M/d h:mm a')"></td>
+                            <td dmx-text="'🌡️'+temperature+'°'"></td>
+                            <td dmx-text="'💨'+windSpeed"></td>
                             <td>
                                 <a><img dmx-bind:src="icon" class="img-fluid"></a>
                             </td>
