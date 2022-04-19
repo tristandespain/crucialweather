@@ -637,6 +637,75 @@ dmx.config({
         }
       ],
       "outputType": "array"
+    },
+    "tableRepeat2": {
+      "meta": [
+        {
+          "name": "$index",
+          "type": "number"
+        },
+        {
+          "name": "$key",
+          "type": "text"
+        },
+        {
+          "name": "$value",
+          "type": "object"
+        },
+        {
+          "type": "number",
+          "name": "number"
+        },
+        {
+          "type": "text",
+          "name": "name"
+        },
+        {
+          "type": "text",
+          "name": "startTime"
+        },
+        {
+          "type": "text",
+          "name": "endTime"
+        },
+        {
+          "type": "boolean",
+          "name": "isDaytime"
+        },
+        {
+          "type": "number",
+          "name": "temperature"
+        },
+        {
+          "type": "text",
+          "name": "temperatureUnit"
+        },
+        {
+          "type": "text",
+          "name": "temperatureTrend"
+        },
+        {
+          "type": "text",
+          "name": "windSpeed"
+        },
+        {
+          "type": "text",
+          "name": "windDirection"
+        },
+        {
+          "type": "text",
+          "name": "icon"
+        },
+        {
+          "type": "text",
+          "name": "shortForecast"
+        },
+        {
+          "type": "text",
+          "name": "detailedForecast"
+        }
+      ],
+      "outputType": "array"
     }
   },
   "forecast": {

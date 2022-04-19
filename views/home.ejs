@@ -1,5 +1,5 @@
 <div is="dmx-browser" id="browser1"></div>
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="morph" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
 
 <div class="container mt-2">
     <div class="row">
@@ -71,7 +71,7 @@
 <div class="container text-center mt-5 mb-5">
     <div class="row">
 
-        <div class="col"><button id="btn1" class="btn btn-lg fw-bold w-auto btn-primary style8" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);session1.set('locationname',content.currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+content.currentweatherdata.data.api.data.properties.relativeLocation.properties.state);browser1.goto('/forecast')">View Forecast</button></div>
+        <div class="col"><button id="btn1" class="btn btn-lg fw-bold w-auto style8 btn-primary" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);session1.set('locationname',content.currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+content.currentweatherdata.data.api.data.properties.relativeLocation.properties.state);browser1.goto('/forecast')">View Forecast</button></div>
     </div>
 </div>
 <div class="d-flex justify-content-center">
