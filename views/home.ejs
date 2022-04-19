@@ -68,13 +68,14 @@
         </div>
     </div>
 </div>
-<div class="container text-center">
+<div class="container text-center mt-5 mb-5">
     <div class="row">
-        <div class="col"><button id="btn1" class="btn btn-lg btn-primary fw-bold w-25 style7" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);session1.set('locationname',content.currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+content.currentweatherdata.data.api.data.properties.relativeLocation.properties.state);browser1.goto('/forecast')">View Forecast</button></div>
+
+        <div class="col"><button id="btn1" class="btn btn-lg fw-bold w-auto btn-primary style8" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);session1.set('locationname',content.currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+content.currentweatherdata.data.api.data.properties.relativeLocation.properties.state);browser1.goto('/forecast')">View Forecast</button></div>
     </div>
 </div>
 <div class="d-flex justify-content-center">
-    <h1>Hourly</h1>
+    <h1>Next 12 Hours</h1>
 </div>
 <div class="container">
     <div class="row">
@@ -85,9 +86,9 @@
                         <tr>
                         </tr>
                     </thead>
-                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="currentweatherdata.data.nwshourly.data.properties.periods" id="tableRepeat1">
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="currentweatherdata.data.nwshourly.data.properties.periods.top(12)" id="tableRepeat1">
                         <tr>
-                            <td dmx-text="'📅 '+startTime.formatDate('M/d h:mm a')"></td>
+                            <td dmx-text="'🕐 '+startTime.formatDate('h:mm a')"></td>
                             <td dmx-text="'🌡️'+temperature+'°'"></td>
                             <td dmx-text="'💨'+windSpeed"></td>
                             <td>

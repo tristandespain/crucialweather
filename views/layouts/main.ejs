@@ -67,7 +67,7 @@
                                 <form class="d-flex my-2 my-lg-0" method="post" action="/api/Current">
 
                                     <input class="form-control me-sm-2" placeholder="Enter City or Zip" id="locationsearch" name="locationsearch" dmx-on:keydown.enter="btn1.focus()">
-                                    <button id="btn1" class="btn btn-secondary" dmx-on:click="session1.set('location',locationsearch.value);browser1.goto('/search')">Search</button>
+                                    <button id="btn1" class="btn btn-secondary shadow-none" dmx-on:click="session1.set('location',locationsearch.value);browser1.goto('/search')">Search</button>
                                 </form>
                             </div>
                         </div>
