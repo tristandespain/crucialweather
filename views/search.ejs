@@ -1,4 +1,4 @@
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrentSearch" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="session1.data.location"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{}}" -->
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrentSearch" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="session1.data.location" dmx-on:success="session1.set('lat',currentweatherdata.data.api.data.geometry.coordinates[1]);session1.set('long',currentweatherdata.data.api.data.geometry.coordinates[0])"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{}}" -->
 <div class="container text-primary text-center" dmx-hide="currentweatherdata.data">
     <div class="row">
         <div class="col">
@@ -9,7 +9,7 @@
 <div class="container mt-2" dmx-show="currentweatherdata.data">
     <div class="row">
         <div class="col">
-            <div class="card placeholder-glow">
+            <div class="card placeholder-glow border border-2 border-primary">
                 <div class="card-header style4 text-center placeholder-glow text-light bg-primary">{{currentweatherdata.data.api1.data.properties.periods[0].name+' in '+currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+currentweatherdata.data.api.data.properties.relativeLocation.properties.state}}</div>
                 <div class="card-body">
                     <h3 class="text-center placeholder-glow">{{currentweatherdata.data.api1.data.properties.periods[0].shortForecast}}</h3>
