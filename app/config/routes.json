@@ -24,6 +24,11 @@
       "path": "/map",
       "page": "map",
       "layout": "main"
+    },
+    {
+      "path": "/watches",
+      "page": "watches",
+      "layout": "main"
     }
   ]
 }

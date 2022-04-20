@@ -18,5 +18,9 @@
   "map.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "watches.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }
