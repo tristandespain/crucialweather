@@ -14,5 +14,9 @@
   "forecast.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "map.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }

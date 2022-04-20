@@ -19,6 +19,11 @@
       "path": "/forecast",
       "page": "forecast",
       "layout": "main"
+    },
+    {
+      "path": "/map",
+      "page": "map",
+      "layout": "main"
     }
   ]
 }
