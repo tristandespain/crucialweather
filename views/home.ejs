@@ -1,7 +1,14 @@
-<div is="dmx-browser" id="browser1"></div>
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
+<div is="dmx-browser" id="browser1" dmx-on:ready="" dmx-on:load=""></div>
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude" dmx-on:success=""></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{}}" -->
 
-<div class="container mt-2">
+<div class="container text-center text-primary" dmx-hide="currentweatherdata.data">
+    <div class="row">
+        <div class="col">
+            <i class="fas fa-spinner fa-6x fa-spin"></i>
+        </div>
+    </div>
+</div>
+<div class="container mt-2" dmx-show="currentweatherdata.data">
     <div class="row">
         <div class="col">
             <div class="card border rounded rounded-2 border-primary border-2">
@@ -37,7 +44,7 @@
 </div>
 
 
-<div class="container mt-2 mb-3">
+<div class="container mt-2 mb-3" dmx-show="currentweatherdata.data">
     <div class="row">
         <div class="col">
             <div class="card border border-primary rounded rounded-2 border-2">
@@ -68,16 +75,16 @@
         </div>
     </div>
 </div>
-<div class="container text-center mt-5 mb-5">
+<div class="container text-center mt-5 mb-5" dmx-show="currentweatherdata.data">
     <div class="row">
 
         <div class="col"><button id="btn1" class="btn btn-lg fw-bold w-auto style8 btn-primary" dmx-on:click="session1.set('office',content.currentweatherdata.data.api.data.properties.gridId);session1.set('gridx',content.currentweatherdata.data.api.data.properties.gridX);session1.set('gridy',content.currentweatherdata.data.api.data.properties.gridY);session1.set('locationname',content.currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+content.currentweatherdata.data.api.data.properties.relativeLocation.properties.state);browser1.goto('/forecast')">View Forecast</button></div>
     </div>
 </div>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" dmx-show="currentweatherdata.data">
     <h1>Next 12 Hours</h1>
 </div>
-<div class="container">
+<div class="container" dmx-show="currentweatherdata.data">
     <div class="row">
         <div class="col">
             <div class="table-responsive">

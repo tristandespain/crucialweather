@@ -20,6 +20,14 @@ dmx.config({
       {
         "type": "text",
         "name": "gridy"
+      },
+      {
+        "type": "text",
+        "name": "lat"
+      },
+      {
+        "type": "text",
+        "name": "long"
       }
     ]
   },
