@@ -1,13 +1,11 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="map" appConnect="local" -->
 <meta name="ac:route" content="/map">
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div id='printoutPanel'></div>
 
-            <div id='myMap' style='width: 100%; height: 100vh;'></div>
-            <script type='text/javascript'>
-                function loadMapScenario() {
+<div id='printoutPanel'></div>
+
+<div id='myMap' style='width: 100%; height: 100vh;'></div>
+<script type='text/javascript'>
+    function loadMapScenario() {
                             var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
                                 /* No need to set credentials if already passed in URL */
                                 center: new Microsoft.Maps.Location(dmx.parse('session1.data.lat'), dmx.parse('session1.data.long')),
@@ -27,7 +25,7 @@
                             map.layers.insert(animatedLayer);
                             
                         }
-            </script>
-            <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AukXSlfzCJfc61nlTFraKxuXwZr0hj-VnilCgGs1s-tf1SEfDJxjjrSEE9t7K7Bz&callback=loadMapScenario' async defer></script>
-            </body>
-        </div>
+</script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AukXSlfzCJfc61nlTFraKxuXwZr0hj-VnilCgGs1s-tf1SEfDJxjjrSEE9t7K7Bz&callback=loadMapScenario' async defer></script>
+</body>
+</div>
