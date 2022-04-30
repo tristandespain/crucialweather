@@ -1,11 +1,25 @@
 <div is="dmx-browser" id="browser1"></div>
 <dmx-preloader id="preloader1" color="#006CE7" spinner="wave"></dmx-preloader>
-<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude" dmx-on:success="session1.set('lat',geo1.coords.latitude);session1.set('long',geo1.coords.longitude)"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{},dmxPreloader:{}}" -->
+<dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude" dmx-on:success="session1.set('lat',geo1.coords.latitude);session1.set('long',geo1.coords.longitude)"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{},dmxPreloader:{},dmxBootstrap5Collapse:{}}" -->
 
 
-<div class="container">
+<div class="container" dmx-show="currentweatherdata.data.alerts.data.features[0].properties.event">
     <div class="row">
         <div class="col">
+            <div class="card">
+                <div class="card-header bg-danger text-center" id="card1_heading">
+                    <h5 class="mb-0 text-center">
+                        <button id="card1_collapse_Btn" class="btn btn-link text-light" type="button" data-bs-toggle="collapse" data-bs-target="#card1_collapse" aria-expanded="true" aria-controls="collapse">
+                            {{currentweatherdata.data.alerts.data.features[0].properties.event}}
+                        </button>
+                    </h5>
+                </div>
+                <div id="card1_collapse" class="collapse" is="dmx-bs5-collapse" aria-labelledby="card1_heading" data-bs-parent="">
+                    <div class="card-body">
+                        {{currentweatherdata.data.alerts.data.features[0].properties.headline+'. '+currentweatherdata.data.alerts.data.features[0].properties.description}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
