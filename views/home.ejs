@@ -3,7 +3,8 @@
 <dmx-serverconnect id="currentweatherdata" url="/api/NWSCurrent" dmx-param:lat="geo1.coords.latitude" dmx-param:long="geo1.coords.longitude" dmx-param:latlong="geo1.coords.latitude+','+geo1.coords.longitude" dmx-on:success="session1.set('lat',geo1.coords.latitude);session1.set('long',geo1.coords.longitude)"></dmx-serverconnect><!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="home" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBrowser:{},dmxPreloader:{},dmxBootstrap5Collapse:{}}" -->
 
 
-<div class="container" dmx-show="currentweatherdata.data.alerts.data.features[0].properties.event">
+
+<div class="container" dmx-hide="(currentweatherdata.data.alerts.data.features[0].properties.response == 'AllClear')">
     <div class="row">
         <div class="col">
             <div class="card">
