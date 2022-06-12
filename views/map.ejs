@@ -4,7 +4,7 @@
 
 <div id='printoutPanel'></div>
 
-<div id='myMap' style='width: 100%; height: 100vh;'></div>
+<div id='myMap' style='width: 100%; height: 100vh; opacity: 100%;'></div>
 <script type='text/javascript'>
     function loadMapScenario() {
                             var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
@@ -26,6 +26,7 @@
                             map.layers.insert(animatedLayer);
                             
                         }
+    
 </script>
 <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AukXSlfzCJfc61nlTFraKxuXwZr0hj-VnilCgGs1s-tf1SEfDJxjjrSEE9t7K7Bz&callback=loadMapScenario' async defer></script>
 </body>
