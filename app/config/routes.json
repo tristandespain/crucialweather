@@ -29,6 +29,16 @@
       "path": "/watches",
       "page": "watches",
       "layout": "main"
+    },
+    {
+      "path": "/overview",
+      "page": "overview",
+      "layout": "main"
+    },
+    {
+      "path": "/outlooks",
+      "page": "outlooks",
+      "layout": "main"
     }
   ]
 }

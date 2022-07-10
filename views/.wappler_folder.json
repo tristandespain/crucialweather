@@ -22,5 +22,13 @@
   "watches.ejs": {
     "layoutPage": "main",
     "description": ""
+  },
+  "overview.ejs": {
+    "layoutPage": "main",
+    "description": ""
+  },
+  "outlooks.ejs": {
+    "layoutPage": "main",
+    "description": ""
   }
 }
