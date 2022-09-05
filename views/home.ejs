@@ -69,7 +69,7 @@
                 <div class="card-header style4 text-center bg-primary text-light">{{currentweatherdata.data.api1.data.properties.periods[1].name+' in '+currentweatherdata.data.api.data.properties.relativeLocation.properties.city+', '+currentweatherdata.data.api.data.properties.relativeLocation.properties.state}}</div>
                 <div class="card-body bg-secondary">
                     <h3 class="text-center">{{currentweatherdata.data.api1.data.properties.periods[1].shortForecast}}</h3>
-                    <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[2].icon" class="img-fluid rounded"></div>
+                    <div class="d-flex justify-content-center mb-2"><img dmx-bind:src="currentweatherdata.data.api1.data.properties.periods[1].icon" class="img-fluid rounded"></div>
                     <div class="d-flex flex-row justify-content-around mb-2 text-black-50">
                         <h5 class="card-text">&nbsp;🌡️{{currentweatherdata.data.api1.data.properties.periods[1].temperature+'°'+currentweatherdata.data.api1.data.properties.periods[1].temperatureUnit}}</h5>
                         <h5 class="card-text">&nbsp;💨{{currentweatherdata.data.api1.data.properties.periods[1].windDirection+' @ '+currentweatherdata.data.api1.data.properties.periods[1].windSpeed}}</h5>
