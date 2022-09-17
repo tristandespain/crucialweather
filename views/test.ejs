@@ -3,7 +3,6 @@
 <head>
     <meta name="ac:route" content="/test">
     <base href="/">
-    <script src="/dmxAppConnect/dmxAppConnect.js"></script>
     <meta charset="UTF-8">
     <title>Map</title>
     <link rel="stylesheet" href="fontawesome4/css/font-awesome.min.css" />
@@ -13,16 +12,15 @@
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
 
-<body is="dmx-app" id="leaflet">
+<div id='mapid' style='width: 100%; height: 100vh;'></div>
+<!--Your DIV must have a height!!-->
 
-    <div id="mapid" style="height:100vh;"></div>
-    <!--Your DIV must have a height!!-->
-
-    <script>
-        //LEAFLET CODE
+<script>
+    //LEAFLET CODE
     
-    var map = L.map("mapid").setView(geo1.coords.latitude,geo1.coords.longitude)], 4);
+    var map = L.map("mapid").setView([38,-95], 5);
     
     // Add OpenStreetMap to the map
     var basemapUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -55,10 +53,10 @@
     });
 
     
-    </script>
+</script>
 
-    <script src="bootstrap/4/js/popper.min.js"></script>
+<script src="bootstrap/4/js/popper.min.js"></script>
 
-    <script src="bootstrap/4/js/bootstrap.min.js"></script>
+<script src="bootstrap/4/js/bootstrap.min.js"></script>
 
 </body>

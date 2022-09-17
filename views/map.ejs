@@ -1,33 +1,62 @@
 <!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="map" appConnect="local" components="{dmxPreloader:{}}" -->
-<dmx-preloader id="preloader1" color="#006CE7" spinner="wave"></dmx-preloader>
-<meta name="ac:route" content="/map">
 
-<div id='printoutPanel'></div>
+<head>
+    <meta name="ac:route" content="/map">
+    <base href="/">
+    <meta charset="UTF-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="fontawesome4/css/font-awesome.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="bootstrap/4/united/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
 
-<div id='myMap' style='width: 100%; height: 100vh; opacity: 100%;'></div>
-<script type='text/javascript'>
-    function loadMapScenario() {
-                            var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-                                /* No need to set credentials if already passed in URL */
-                                center: new Microsoft.Maps.Location(dmx.parse('session1.data.lat'), dmx.parse('session1.data.long')),
-                                zoom: 9
-                            });
-                            // tile url from Iowa Environmental Mesonet of Iowa State University
-                            var urlTemplate = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-{timestamp}/{zoom}/{x}/{y}.png';
-                            var timestamps = ['900913-m50m', '900913-m45m', '900913-m40m', '900913-m35m', '900913-m30m', '900913-m25m', '900913-m20m', '900913-m15m', '900913-m10m', '900913-m05m', '900913'];
-                            var tileSources = [];
-                            for (var i = 0; i < timestamps.length; i++) {
-                                var tileSource = new Microsoft.Maps.TileSource({
-                                    uriConstructor: urlTemplate.replace('{timestamp}', timestamps[i])
-                                });
-                                tileSources.push(tileSource);
-                            }
-                            var animatedLayer = new Microsoft.Maps.AnimatedTileLayer({ mercator: tileSources, frameRate: 500 });
-                            map.layers.insert(animatedLayer);
-                            
-                        }
+<div id='mapid' style='width: 100%; height: 100vh;'></div>
+<!--Your DIV must have a height!!-->
+
+<script>
+    //LEAFLET CODE
+    
+    var map = L.map("mapid").setView([38,-95], 5);
+    
+    // Add OpenStreetMap to the map
+    var basemapUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    var basemap = L.tileLayer(basemapUrl).addTo(map);
+    
+    // Add weather radar to the map
+    var radarUrl = "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi";
+    var radarDisplayOptions = {
+    layers: "nexrad-n0r-900913",
+    format: "image/png",
+    transparent: true
+    };
+    var radar = L.tileLayer.wms(radarUrl, radarDisplayOptions).addTo(map);
+    
+    // Get GeoJSON data from the NWS weather alerts API
+    var weatherAlertsUrl = "https://api.weather.gov/alerts/active?region_type=land";
+    $.getJSON(weatherAlertsUrl, function (data) {
+    L.geoJSON(data, {
+    // Color all alert polygons orange, but color Severe polygons red
+    style: function (feature) {
+    var alertColor = "orange";
+    if (feature.properties.severity === "Severe") alertColor = "red";
+    return { color: alertColor };
+    },
+    // Add a popup on each feature showing the NWS alert headline
+    onEachFeature: function (feature, layer) {
+    layer.bindPopup(feature.properties.headline);
+    }
+    }).addTo(map);
+    });
+
     
 </script>
-<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AukXSlfzCJfc61nlTFraKxuXwZr0hj-VnilCgGs1s-tf1SEfDJxjjrSEE9t7K7Bz&callback=loadMapScenario' async defer></script>
+
+<script src="bootstrap/4/js/popper.min.js"></script>
+
+<script src="bootstrap/4/js/bootstrap.min.js"></script>
+
 </body>
-</div>

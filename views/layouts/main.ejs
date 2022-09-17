@@ -33,7 +33,7 @@
 <body is="dmx-app" id="main">
     <div is="dmx-browser" id="browser1"></div>
     <dmx-session-manager id="session1"></dmx-session-manager>
-    <dmx-geolocation id="geo1"></dmx-geolocation>
+    <dmx-geolocation id="geo1" dmx-on:success="session1.set('maplatlong',coords.latitude+','+coords.longitude)"></dmx-geolocation>
     <header class="bg-primary text-primary">
         <div class="container text-primary">
             <div class="row align-items-center">

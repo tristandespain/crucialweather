@@ -28,6 +28,10 @@ dmx.config({
       {
         "type": "text",
         "name": "long"
+      },
+      {
+        "type": "object",
+        "name": "maplatlong"
       }
     ]
   },
