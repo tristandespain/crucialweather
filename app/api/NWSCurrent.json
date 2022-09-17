@@ -270,7 +270,6 @@
             }
           ]
         },
-        "output": true,
         "meta": [
           {
             "type": "object",
@@ -525,7 +524,8 @@
             ]
           }
         ],
-        "outputType": "object"
+        "outputType": "object",
+        "output": true
       },
       {
         "name": "api1",
@@ -756,7 +756,6 @@
             }
           ]
         },
-        "output": true,
         "meta": [
           {
             "type": "object",
@@ -979,7 +978,8 @@
             ]
           }
         ],
-        "outputType": "object"
+        "outputType": "object",
+        "output": true
       },
       {
         "name": "nwshourly",
@@ -1210,7 +1210,6 @@
             }
           ]
         },
-        "output": true,
         "meta": [
           {
             "type": "object",
@@ -1433,7 +1432,8 @@
             ]
           }
         ],
-        "outputType": "object"
+        "outputType": "object",
+        "output": true
       },
       {
         "name": "alerts",
@@ -1732,7 +1732,6 @@
             }
           ]
         },
-        "output": true,
         "meta": [
           {
             "type": "object",
@@ -2023,7 +2022,8 @@
             ]
           }
         ],
-        "outputType": "object"
+        "outputType": "object",
+        "output": true
       }
     ]
   }

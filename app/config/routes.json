@@ -39,6 +39,11 @@
       "path": "/outlooks",
       "page": "outlooks",
       "layout": "main"
+    },
+    {
+      "path": "/test",
+      "page": "test",
+      "layout": "main"
     }
   ]
 }
