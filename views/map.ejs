@@ -1,4 +1,4 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="map" appConnect="local" components="{dmxPreloader:{}}" -->
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" id="map" components="{dmxPreloader:{}}" is="dmx-app" appConnect="local" -->
 
 <head>
     <meta name="ac:route" content="/map">
@@ -20,11 +20,14 @@
 <script>
     //LEAFLET CODE
     
-    var map = L.map("mapid").setView([38,-95], 5);
+    map = L.map('mapid', {doubleClickZoom: true}).locate({setView: true, maxZoom: 16});
+    
     
     // Add OpenStreetMap to the map
     var basemapUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
     var basemap = L.tileLayer(basemapUrl).addTo(map);
+    
+
     
     // Add weather radar to the map
     var radarUrl = "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi";
@@ -52,7 +55,12 @@
     }).addTo(map);
     });
 
-    
+
+function onLocationError(e) {
+alert(e.message);
+}
+
+map.on('locationerror', onLocationError);
 </script>
 
 <script src="bootstrap/4/js/popper.min.js"></script>
