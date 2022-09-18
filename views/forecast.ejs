@@ -1,27 +1,35 @@
-<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="forecast" appConnect="local" components="{dmxPreloader:{}}" -->
-<dmx-preloader id="preloader1" color="#006CE7" spinner="wave"></dmx-preloader>
+<!-- Wappler include head-page="layouts/main" fontawesome_5="cdn" bootstrap5="lumen" is="dmx-app" id="forecast" appConnect="local" components="{dmxPreloader:{},dmxBootstrap5Collapse:{}}" -->
 <dmx-serverconnect id="nwsforecastdata" url="/api/NWSForecast" dmx-param:office="session1.data.office" dmx-param:gridx="session1.data.gridx" dmx-param:gridy="session1.data.gridy"></dmx-serverconnect>
 <div class="container">
     <h1 class="text-center">Forecast For {{session1.data.locationname}}</h1>
 </div>
 <div class="container">
-    <div class="row row-cols-2" is="dmx-repeat" id="repeat1" dmx-bind:repeat="nwsforecastdata.data.api.data.properties.periods">
+    <div class="row align-items-center row-cols-md-1 row-cols-sm-1 row-cols-1 row-cols-xxl-2 row-cols-xl-2 row-cols-lg-2" is="dmx-repeat" id="repeat1" dmx-bind:repeat="nwsforecastdata.data.api.data.properties.periods">
         <div class="col mt-3">
-            <div class="card h-100 border border-2 border-primary">
-                <div class="card-header text-center text-light bg-primary fw-bolder style9">{{name}}</div>
-                <div class="card-body">
-                    <h5 class="card-title text-center">{{shortForecast}}</h5>
-                    <div class="d-flex justify-content-center">
-                        <img dmx-bind:src="icon">
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <p class="w-100 text-center"><i class="fas fa-thermometer-half style5"></i> {{temperature}}° {{temperatureUnit}}
-                        </p>
-                        <p class="w-100 text-center"><i class="fas fa-wind style6"></i> {{windDirection}} @ {{windSpeed}}
-                        </p>
-                    </div>
-                    <h5 class="card-text">{{detailedForecast}}</h5>
+            <div class="card h-100 border border-2 border-primary pt-2 pb-2 ps-2 pe-2 shadow">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="fw-bold text-start">{{name}}<p class="text-primary fw-bolder">{{temperature+'°'}}
+                        <p><img dmx-bind:src="icon" class="img-fluid rounded shadow-lg"></p>
+                    </h4>
+
+
+
+                    <h6>{{shortForecast}}</h6>
+
                 </div>
+                <div class="d-flex align-items-center justify-content-between justify-content-lg-center">
+                    <button id="btn1" class="btn btn-secondary w-100 shadow-none" data-bs-toggle="collapse" data-bs-target="#collapse1"> Detailed Forecast
+
+                    </button>
+
+
+
+
+                </div>
+                <div class="collapse" id="collapse1" is="dmx-bs5-collapse">
+                    <p>{{detailedForecast}}</p>
+                </div>
+
             </div>
         </div>
     </div>

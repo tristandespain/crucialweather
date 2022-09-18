@@ -20,7 +20,7 @@
 <script>
     //LEAFLET CODE
     
-    map = L.map('mapid', {doubleClickZoom: true}).locate({setView: true, maxZoom: 16});
+    map = L.map('mapid', {doubleClickZoom: false}).locate({setView: true, maxZoom: 8});
     
     
     // Add OpenStreetMap to the map
@@ -54,6 +54,7 @@
     }
     }).addTo(map);
     });
+
 
 
 function onLocationError(e) {
