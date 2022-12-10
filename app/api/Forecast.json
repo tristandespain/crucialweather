@@ -553,7 +553,7 @@
           }
         ],
         "headers": {
-          "User-Agent": "tristan.despain@outlook.com"
+          "User-Agent": "(weather.apps.despaindesigns.com,tristan.despain@outlook.com)"
         }
       },
       "output": true,
