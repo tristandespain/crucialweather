@@ -268,7 +268,10 @@
                 }
               ]
             }
-          ]
+          ],
+          "headers": {
+            "User-Agent": "tristan.despain@outlook.com"
+          }
         },
         "meta": [
           {
@@ -760,7 +763,10 @@
                 }
               ]
             }
-          ]
+          ],
+          "headers": {
+            "User-Agent": "tristan.despain@outlook.com"
+          }
         },
         "meta": [
           {
@@ -1220,7 +1226,10 @@
                 }
               ]
             }
-          ]
+          ],
+          "headers": {
+            "User-Agent": "tristan.despain@outlook.com"
+          }
         },
         "meta": [
           {
@@ -1748,7 +1757,10 @@
                 }
               ]
             }
-          ]
+          ],
+          "headers": {
+            "User-Agent": "tristan.despain@outlook.com"
+          }
         },
         "meta": [
           {
