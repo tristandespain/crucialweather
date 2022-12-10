@@ -528,6 +528,12 @@
         "output": true
       },
       {
+        "name": "wait",
+        "module": "core",
+        "action": "wait",
+        "options": {}
+      },
+      {
         "name": "api1",
         "module": "api",
         "action": "send",
@@ -982,6 +988,12 @@
         "output": true
       },
       {
+        "name": "wait1",
+        "module": "core",
+        "action": "wait",
+        "options": {}
+      },
+      {
         "name": "nwshourly",
         "module": "api",
         "action": "send",
@@ -1434,6 +1446,12 @@
         ],
         "outputType": "object",
         "output": true
+      },
+      {
+        "name": "wait2",
+        "module": "core",
+        "action": "wait",
+        "options": {}
       },
       {
         "name": "alerts",

@@ -18,7 +18,7 @@
         function loadMapScenario() {
                 var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
                     /* No need to set credentials if already passed in URL */
-                    center: new Microsoft.Maps.Location(dmx.parse('geo1.coords.latitude'),dmx.parse('geo1.coords.longitude')),
+                    center: new Microsoft.Maps.Location(dmx.parse('session1.data.lat'),dmx.parse('session1.data.long')),
                     zoom: 8
                 });
                 // tile url from Iowa Environmental Mesonet of Iowa State University
